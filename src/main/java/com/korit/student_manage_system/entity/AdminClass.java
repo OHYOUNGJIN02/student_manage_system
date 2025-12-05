@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 
-public class Class {
+public class AdminClass {
     private Integer clsId;
     private String clsName;
     private String clsDscpt;

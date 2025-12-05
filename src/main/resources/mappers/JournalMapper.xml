@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.korit.student_manage_system.mapper.JournalMapper">
+    <resultMap id="JournalResultMap" type="com.korit.student_manage_system.entity.Journal">
+        <id property="stdtjrnlId" column="stdt_jrnl_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="jrnlContent" column="jrnl_content"/>
+        <result property="createDt" column="create_dt"/>
+        <result property="updateDt" column="update_dt"/>
+    </resultMap>
+    <insert id="addJournal" useGeneratedKeys="true" keyProperty="userId">
+        insert into stdt_jrnl_tb
+        values (0, 0 , #(content), now(), null)
+    </insert>
+
+    <select id="getJournalById" resultMap="JournalResultMap">
+        select
+        *
+        from
+        stdt_jrnl_tb
+        where
+        stdt_jrnl_id = #(stdtJrnlId)
+    </select>
+
+    <select id="getAllJournal" resultMap="JournalResultMap">
+        select
+        *
+        from
+        user_id
+    </select>
+
+    <update id="modifyJournal">
+        update
+        stdt_jrnl_tb
+        set
+        content = #{content}
+        where
+        stdt_jrnl_tb
+    </update>
+
+
+</mapper>

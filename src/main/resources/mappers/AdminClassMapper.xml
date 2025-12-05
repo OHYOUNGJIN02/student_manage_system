@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.korit.student_manage_system.mapper.AdminClassMapper">
+    <resultMap id="AdminClassResultMap" type="com.korit.student_manage_system.entity.AdminClass">
+        <id property="clsId" column="cls_id"/>
+        <result property="clsName" column="cls_name"/>
+        <result property="clsDscpt" column="cls_dscpt"/>
+    </resultMap>
+
+    <insert id="addClass" useGeneratedKeys="true" keyProperty="clsId">
+        insert into
+            cls_tb
+        values
+            (0, #{clsName}, #{clsDscpt})
+    </insert>
+
+    <delete id="deleteClass">
+        delete from
+            cls_tb
+        where
+            cls_id = #{clsId}
+    </delete>
+
+    <select id="getClassById" resultMap="AdminClassResultMap">
+        select
+            *
+        from
+            cls_tb
+        where
+            cls_id = #{clsId}
+    </select>
+
+    <select id="getClassByClassName" resultMap="AdminClassResultMap">
+        select
+            *
+        from
+            cls_tb
+        where
+            cls_name = #{clsName}
+    </select>
+
+    <select id="getClassList" resultMap="AdminClassResultMap">
+    select
+    *
+    from
+    cls_tb
+    </select>
+
+</mapper>
+    

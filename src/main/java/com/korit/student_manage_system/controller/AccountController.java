@@ -14,7 +14,7 @@ public class AccountController {
     @Autowired
     AccountService accountService;
 
-    @PostMapping("/modify/password")
+    @PostMapping("/change/password")
     public ResponseEntity<?> changePassword(@RequestBody ChangePasswordReqDto changePasswordReqDto, Principal principal) {
         return ResponseEntity.ok(accountService.changePassword(changePasswordReqDto, principal));
     }

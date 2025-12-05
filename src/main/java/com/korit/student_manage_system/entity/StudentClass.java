@@ -7,11 +7,10 @@ import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
-
-public class Journal {
-    private Integer stdtJrnlId;
-    private Integer userId;
-    private String JournalContent;
+public class StudentClass {
+    private int stdtClsId;
+    private int userId;
+    private int clsId;
     private LocalDateTime createDt;
     private LocalDateTime updateDt;
 
